@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @market_comment.comment %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @market_comment.status %>
+</p>
+
+<%= link_to 'Edit', edit_market_comment_path(@market_comment) %> |
+<%= link_to 'Back', market_comments_path %>

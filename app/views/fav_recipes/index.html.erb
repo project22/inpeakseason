@@ -1,0 +1,27 @@
+<h1>Listing fav_recipes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Recipe</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fav_recipes.each do |fav_recipe| %>
+      <tr>
+        <td><%= fav_recipe.recipe_id %></td>
+        <td><%= link_to 'Show', fav_recipe %></td>
+        <td><%= link_to 'Edit', edit_fav_recipe_path(fav_recipe) %></td>
+        <td><%= link_to 'Destroy', fav_recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fav recipe', new_fav_recipe_path %>

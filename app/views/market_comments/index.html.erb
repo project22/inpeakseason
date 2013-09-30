@@ -1,0 +1,29 @@
+<h1>Listing market_comments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Comment</th>
+      <th>Status</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @market_comments.each do |market_comment| %>
+      <tr>
+        <td><%= market_comment.comment %></td>
+        <td><%= market_comment.status %></td>
+        <td><%= link_to 'Show', market_comment %></td>
+        <td><%= link_to 'Edit', edit_market_comment_path(market_comment) %></td>
+        <td><%= link_to 'Destroy', market_comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Market comment', new_market_comment_path %>

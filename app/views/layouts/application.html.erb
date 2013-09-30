@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>InPeakSeason</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-default" role="navigation">
+	  <!-- Brand and toggle get grouped for better mobile display -->
+	  <div class="navbar-header">
+	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+	      <span class="sr-only">Toggle navigation</span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	    </button>
+	    <a class="navbar-brand" href="#">Brand</a>
+	  </div>
+
+	  <!-- Collect the nav links, forms, and other content for toggling -->
+	  <div class="collapse navbar-collapse navbar-ex1-collapse">
+	    <ul class="nav navbar-nav">
+	      <li class="active"><a href="#">Link</a></li>
+	      <li><a href="#">Link</a></li>
+	      <li class="dropdown">
+	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+	        <ul class="dropdown-menu">
+	          <li><%= link_to "Items", items_path %></li>
+	          <li><%= link_to "Regions", regions_path %></li>
+	          <li><%= link_to "Markets", markets_path %></li>
+	          <li><%= link_to "Seasons", seasons_path %></li>
+	          <li><%= link_to "Users", users_path %></li>
+	          <li><%= link_to "Market Comments", users_path %></li>
+	          <li><%= link_to "Fav Recipes", fav_recipes_path %></li>
+	        </ul>
+	      </li>
+	    </ul>
+	    <form class="navbar-form navbar-left" role="search">
+	      <div class="form-group">
+	        <input type="text" class="form-control" placeholder="Search">
+	      </div>
+	      <button type="submit" class="btn btn-default">Submit</button>
+	    </form>
+	   
+    	<span class="navbar-text pull-right">
+    	<% if current_user %>
+				Welcome <%= current_user.name %> 
+				<%= link_to "Sign Out", signout_path %>
+			<% else %>
+				<%= link_to "Sign in wth Facebook", "/auth/facebook" %>
+			<% end %>
+			</span>
+
+	  </div><!-- /.navbar-collapse -->
+	</nav>
+	<div id="user_nav">
+		<% if current_user %>
+			Welcome <%= current_user.name %> 
+			<%= link_to "Sign Out", signout_path %>
+		<% else %>
+			<%= link_to "Sign in wth Facebook", "/auth/facebook" %>
+		<% end %>
+	</div>
+
+<%= yield %>
+
+</body>
+</html>
